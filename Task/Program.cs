@@ -21,6 +21,7 @@ class Program
         minArrayElement(array);
         maxElementIndex(array);
         maxAbsoluteElement(array);
+        positiveElementIndexSum(array);
     }
     static void negativeNumberSum(double[] array)
     {
@@ -64,5 +65,18 @@ class Program
         }
         Console.WriteLine("Maximum absolute element of array: {0}", maxElement);
     }
-
+    static void positiveElementIndexSum(double[] array)
+    {
+        int sum = -1;
+        for(int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > 0)
+            {
+                if(sum == -1) sum = 0;
+                sum += i;
+            }
+        }
+        if (sum == -1) Console.WriteLine("Array does not have positive elements");
+        else Console.WriteLine("Sum of positive elements indexes of array: {0}", sum);
+    }
 }
