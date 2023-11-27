@@ -1,14 +1,16 @@
 ﻿using System;
 class Program
 {
-    private static int min;
-
     static void Main()
     {
         int N;
+        bool check;
         Random rnd = new Random();
         Console.Write("Enter array size: ");
-        bool check = int.TryParse(Console.ReadLine(), out N);
+        do
+        {
+            check = int.TryParse(Console.ReadLine(), out N);
+        } while (check == false);
         double[] array = new double[N];
         for (int i = 0; i < array.Length; i++)
         {
@@ -16,15 +18,25 @@ class Program
             Console.Write("{0}  ", array[i]);
         }
         negativeNumberSum(array);
+        minArrayElement(array);
     }
     static void negativeNumberSum(double[] array)
     {
         double sum = 0;
-        for (int i = 0;i < array.Length;i++)
+        for (int i = 0; i < array.Length; i++)
         {
             if (array[i] < 0) sum += array[i];
         }
         if (sum == 0) Console.WriteLine("\nArray does not have negative elements");
-        else Console.WriteLine("\nThe sum of negative array elements: {0}", sum);
+        else Console.WriteLine("\nThe sum of negative array elements: {0}", Math.Round(sum, 2));
+    }
+    static void minArrayElement(double[] array)
+    {
+        double minElement = array[0];
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (minElement > array[i]) minElement = array[i];
+        }
+        Console.WriteLine("Minimum element of array: {0}", minElement);
     }
 }
