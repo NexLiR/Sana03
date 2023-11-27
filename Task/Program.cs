@@ -19,6 +19,7 @@ class Program
         }
         negativeNumberSum(array);
         minArrayElement(array);
+        maxElementIndex(array);
     }
     static void negativeNumberSum(double[] array)
     {
@@ -38,5 +39,19 @@ class Program
             if (minElement > array[i]) minElement = array[i];
         }
         Console.WriteLine("Minimum element of array: {0}", minElement);
+    }
+    static void maxElementIndex(double[] array)
+    {
+        double maxElement = array[0];
+        int maxElementIndex = 0;
+        for (int i = 1; i < array.Length; i++)
+        {
+            if (maxElement < array[i])
+            {
+                maxElement = array[i];
+                maxElementIndex = i;
+            }
+        }
+        Console.WriteLine("Index of maximum element of array: {0}", maxElementIndex);
     }
 }
