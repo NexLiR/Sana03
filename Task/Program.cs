@@ -20,6 +20,7 @@ class Program
         negativeNumberSum(array);
         minArrayElement(array);
         maxElementIndex(array);
+        maxAbsoluteElement(array);
     }
     static void negativeNumberSum(double[] array)
     {
@@ -54,4 +55,14 @@ class Program
         }
         Console.WriteLine("Index of maximum element of array: {0}", maxElementIndex);
     }
+    static void maxAbsoluteElement(double[] array)
+    {
+        double maxElement = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (maxElement < Math.Abs(array[i])) maxElement = Math.Abs(array[i]);
+        }
+        Console.WriteLine("Maximum absolute element of array: {0}", maxElement);
+    }
+
 }
